@@ -1,10 +1,6 @@
 /*
 ==================================================================================================
 
-Nama        : Maulidya Fauziyyah
-
-Batch       : FTDS-011-HCK
-
 URL Dataset : https://www.kaggle.com/code/akshitmadan/complete-data-analysis-supermarket-dataset
 
 This file contains commands to create a table and insert data into the table.

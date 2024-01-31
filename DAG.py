@@ -1,11 +1,6 @@
 '''
 =============================================================================================================
 
-Milestone 3
-
-Nama  : Maulidya Fauziyyah
-Batch : FTDS-011-HCK
-
 This program is designed to automate the transformation and loading of data from PostgreSQL to ElasticSearch. 
 The dataset used is a dataset about historical sales of a supermarket company, which has been recorded in 3 
 different branches for 3 months of data.
