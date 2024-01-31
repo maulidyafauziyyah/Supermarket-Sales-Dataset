@@ -29,9 +29,7 @@ Dataset akan terlebih dahulu dilakukan Data Cleaning dan validasi data menggunak
    - Hapus data yang duplikat.
    - Normalisasi column dengan cara : 
      + Semua nama column menjadi lowercase. Contoh : `ID` → `id`, `EDUCATION` → `education`, `Age` → `age`.
-     + Spasi yang berada ditengah-tengah nama column diubah menjadi `_` (underscore). Contoh : `First Name` → `first_name`, `HOME ADDRESS` → `home_address`, `Alternative Phone Number` → `alternative_phone_number`.
-     + Menghapus spasi/tab/simbol yang dirasa tidak diperlukan pada nama column. Contoh : `  name` → `name`, `|CAR_PRICE|` → `car_price`.
-   - Handling Missing Values
+     + Mengganti tipe data
 
 4. Setelah dilakukan Data Cleaning, data clean ini disimpan ke dalam CSV file dengan nama `data_clean.csv`.
 
