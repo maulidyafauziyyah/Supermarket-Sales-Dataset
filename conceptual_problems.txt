@@ -5,7 +5,7 @@ This file contains answers to conceptual problems.
 =============================================================================================================
 
 
-1. Jelaskan apa yang dimaksud dengan NoSQL menggunakan pemahaman yang kalian ketahui !
+1. Explain what is meant by NoSQL using your understanding
 
     NoSQL, short for "Not Only SQL," is a type of database design that provides flexible ways to store, manage, and retrieve data, different from the traditional relational database management systems (RDBMS). 
     Unlike RDBMS, which use tables to organize data and SQL for accessing it, NoSQL databases can store data in various formats like key-value pairs, document-oriented structures, wide-column stores, or graphs. 
@@ -13,14 +13,14 @@ This file contains answers to conceptual problems.
     data and real-time web applications because they can easily handle a variety of data types and are built to scale out by distributing the data across multiple servers.
 
 
-2. Jelaskan kapan harus menggunakan NoSQL dan Relational Database Management System !
+2. Explain when to use NoSQL and Relational Database Management System
     
     When deciding between using a NoSQL database and a Relational Database Management System (RDBMS), it's important to consider the nature of your data and your specific needs. Use a NoSQL database when dealing with 
     large volumes of data that doesn't fit neatly into tables, is rapidly changing, or requires flexible schema for unstructured data, like JSON documents. This is typical in big data applications and real-time web apps. 
     On the other hand, choose a Relational Database Management System when you need to ensure data integrity and ACID (Atomicity, Consistency, Isolation, Durability) compliance, especially for complex queries and reports. 
     RDBMS is ideal for applications requiring structured data and clear relationships between different data entities, such as in banking systems or customer relationship management software.
 
-3. Sebutkan contoh 2 tools/platform NoSQL selain ElasticSearch beserta keunggulan tools/platform tersebut !
+3. Mention 2 examples of NoSQL tools/platforms other than Elasticsearch, along with the advantages of these tools/platforms
     
     Two examples of NoSQL tools/platforms besides Elasticsearch are MongoDB and Apache Cassandra.
     
@@ -32,14 +32,14 @@ This file contains answers to conceptual problems.
     many commodity servers. Cassandra offers robust support for clusters spanning multiple datacenters, with asynchronous masterless replication allowing low latency operations for all clients. This makes it an excellent 
     choice for applications that can't afford to lose data, even when an entire data center goes down.
 
-4. Jelaskan apa yang Anda ketahui dari Airflow menggunakan pemahaman dan bahasa Anda sendiri !
+4. Explain what you understand from Airflow in your own words
 
     Apache Airflow is an open-source tool designed for orchestrating complex computational workflows and data processing pipelines. It allows you to plan, organize, and manage tasks effectively. In Airflow, a workflow is 
     structured as a set of tasks, represented by a Directed Acyclic Graph (DAG). This means the tasks are arranged in a way where each task follows another in a specific order without looping back. Airflow is especially 
     useful in automating scripts or procedures that need to run at certain times or in a particular sequence, making it highly valuable in handling batch processing or big data tasks. It's like having a personal assistant 
     that ensures all your data tasks are carried out smoothly and in the right order.
 
-5. Jelaskan apa yang Anda ketahui dari Great Expectations menggunakan pemahaman dan bahasa Anda sendiri !
+5. Explain what you understand from Great Expectations in your own words
 
     Great Expectations in the context of data validation refers to a modern, open-source tool designed to simplify and enhance the process of validating, documenting, and profiling your data to ensure it meets certain 
     quality standards. It helps to check if the data looks right and adheres to the rules and expectations you set. This tool allows you to define 'expectations' or rules for your data, such as ensuring certain columns 
@@ -47,7 +47,7 @@ This file contains answers to conceptual problems.
     report on how well the new data meets your standards. This not only helps in maintaining the quality and consistency of the data but also significantly reduces the risk of errors and issues in data-driven decision-
     making processes.
 
-6. Jelaskan apa yang Anda ketahui dari Batch Processing menggunakan pemahaman dan bahasa Anda sendiri (Definisi, Contoh Kasus Penggunaan, Tools, dll) !
+6. Explain what you understand from Batch Processing in your own words (Definition, Use Case Examples, Tools, etc.)
 
     Batch processing is a method where tasks or data are processed in large groups, or "batches", without needing user interaction for each task. This approach is especially useful when dealing with large volumes of similar 
     tasks or data, making it more efficient than processing each item individually. 

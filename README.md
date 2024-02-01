@@ -1,40 +1,40 @@
-# Assignment Objectives
+# Objectives
 
-Project ini dibuat guna mengevaluasi konsep berikut:
+This project is designed to evaluate the following concepts:
 
-- Mampu menggunakan Apache Airflow
-- Mampu melakukan validasi data dengan menggunakan Great Expectations
-- Mampu memahami konsep NoSQL secara keseluruhan.
-- Mampu mempersiapkan data untuk digunakan sebelum masuk ke database NoSQL.
-- Mampu mengolah dan memvisualisasikan data dengan menggunakan Kibana.
+- Ability to use Apache Airflow
+- Ability to perform data validation using Great Expectations
+- Comprehensive understanding of NoSQL concepts
+- Ability to prepare data for use before entering a NoSQL database
+- Ability to process and visualize data using Kibana
 
 ---
 
 # Data Sources
-Dataset diambil dari repository dibawah ini:
+The dataset is obtained from the following repository:
 
 - [Kaggle datasets](https://www.kaggle.com/code/akshitmadan/complete-data-analysis-supermarket-dataset/input)
 
 # Problems
 
-Membuat report yang berisi Exploratory Data Analysis (EDA) dari dataset.
-  
-Dataset akan terlebih dahulu dilakukan Data Cleaning dan validasi data menggunakan Great Expectation. Semua proses dilakukan dengan pipeline yang dijalankan menggunakan Apache Airflow. Berikut ini adalah langkah-langkah yang dilakukan : 
+Create a report containing Exploratory Data Analysis (EDA) of the dataset.
 
-1. Dataset ini diberi nama `data_raw.csv`.
+The dataset, named `data_raw.csv`, undergoes Data Cleaning and data validation using Great Expectation. All processes are executed through a pipeline using Apache Airflow. The following steps are taken:
 
-2. Data dimasukkan ke dalam PostgreSQL local dan diberi nama table untuk menyimpan data tersebut dengan `table_m3`.
+1. The dataset is named `data_raw.csv`.
 
-3. Setelah data berada didalam database, semua data diambil dari database dengan menggunakan Python dan lakukan beberapa Data Cleaning berikut ini dengan menggunakan Python :
-   - Hapus data yang duplikat.
-   - Normalisasi column dengan cara : 
-     + Semua nama column menjadi lowercase. Contoh : `ID` → `id`, `EDUCATION` → `education`, `Age` → `age`.
-     + Mengganti tipe data
+2. Data is inserted into local PostgreSQL and given a table name to store the data, named `table_m3`.
 
-4. Setelah dilakukan Data Cleaning, data clean ini disimpan ke dalam CSV file dengan nama `data_clean.csv`.
+3. After the data is in the database, retrieve all data from the database using Python and perform several Data Cleaning steps using Python:
+   - Remove duplicate data.
+   - Normalize columns by:
+     + Converting all column names to lowercase. Example: `ID` → `id`, `EDUCATION` → `education`, `Age` → `age`.
+     + Changing data types.
 
-5. Python Notebook (data_GX.ipynb) dibuat untuk melakukan validasi data menggunakan Great Expectations. Adapun kriteria mengenai Expectation yang dipilih adalah :
-   - 7 Expectations yang didalamnya ada Expectation untuk:
+4. After Data Cleaning, save the cleaned data to a CSV file named `data_clean.csv`.
+
+5. Create a Python Notebook (`data_GX.ipynb`) to validate the data using Great Expectations. The chosen Expectation criteria include:
+   - 7 Expectations, which include Expectations for:
      + to be unique
      + to be between min_value and max_value
      + to be contain in column
@@ -42,50 +42,50 @@ Dataset akan terlebih dahulu dilakukan Data Cleaning dan validasi data menggunak
      + to be match strftime format
      + to be in set
 
+   - All seven Expectations used return `success: true`.
 
-   - Ketujuh Expectation yang digunakan semuanya bernilai `success: true`.
+6. In addition to saving it to a CSV file as in point 4, the cleaned data is also inserted into Elasticsearch using Python.
 
-6. Selain disimpan ke dalam file CSV seperti poin 4, data clean ini juga dimasukkan ke dalam Elastic Search dengan menggunakan Python.
+7. Automation is achieved by creating a DAG with the following criteria:
+   - The DAG contains 3 nodes/tasks:
+     + `Fetch from PostgreSQL`: contains a script to retrieve data from PostgreSQL.
+     + `Data Cleaning`: contains a script to perform Data Cleaning and save it to a CSV file.
+     + `Post to Elasticsearch`: contains a script to load the CSV containing cleaned data and insert it into Elasticsearch.
+   - Scheduling is done every day at 06:30.
+   - The DAG file is named `DAG.py`.
 
-7. Automasi dengan membuat DAG dengan kriteria :
-   - DAG berisi 3 node/task dibawah ini :
-     + `Fetch from Postgresql` : berisi script untuk mengambil data dari PostgreSQL.
-     + `Data Cleaning` : berisi script untuk melakukan Data Cleaning dan penyimpanan ke CSV file.
-     + `Post to Elasticsearch` : berisi script untuk me-load CSV yang berisi data yang sudah clean dan memasukkannya ke Elasticsearch.
-   - Penjadwalan dilakukan setiap jam 06:30.
-   - File DAG dengan nama `DAG.py`.
+8. Create a Kibana dashboard for this cleaned data with the following specifications:
+   - Exploratory Data Analysis is related to:
+     * The background of the report
+     * The objectives to be achieved
+     * The division/team in need
+     * Etc.
+   - There are 6 visualizations for the data that support the achievement of the objectives of the EDA process. The 6 visualizations use plots such as:
+     * 1 Bar Plot
+     * 1 Pie Chart
+     * 1 Vertical Bar Plot
+     * 1 Word Cloud
+     * 1 Table
+     * 1 Line Chart
 
-8. Membuat dashboard dengan Kibana terhadap data clean ini dengan ketentuan :
-   - Exploratory Data Analysis dilakukan terkait :
-     * Latar belakang adanya report
-     * Tujuan yang hendak dicapai
-     * Divisi/tim yang membutuhkan
-     * dll
-   - Terdapat 6 visualisasi terhadap data tersebut yang mendukung tercapainya objective dari proses EDA yang dilakukan. Adapun 6 visualisasi menggunakan plot seperti :
-     * 1 penggunaan Bar Plot
-     * 1 penggunaan Pie Chart
-     * 1 penggunaan Vertical Bar Plot
-     * 1 penggunaan Word Cloud
-     * 1 penggunaan Table
-     * 1 penggunaan Line Chart
-     
-    - 1 visualisasi berupa `Markdown` yang berisi :
-     + Kesimpulan eksplorasi yang dilakukan.
-     + Saran lanjutan atau insight bisnis terhadap eksplorasi yang dilakukan.
-     + Kesimpulan yang dituliskan berisi rekomendasi mengenai objective yang telah ditentukan berdasarkan gabungan antara hasil eksplorasi yang dilakukan dan suatu referensi eksternal (seperti teori suatu domain, pernyataan seorang ahli, fakta kompetitor, dll) sehingga rekomendasi dapat tepat sasaran dan masuk akal untuk diberikan.
-   - Total visualisasi : 6 visualisasi + 1 visualisasi Markdown mengenai kesimpulan = 7 visualiasi.
-   
+    - 1 visualization in `Markdown` format that contains:
+     + Conclusions from the exploration.
+     + Further suggestions or business insights based on the exploration.
+     + The conclusions include recommendations regarding the objectives determined based on a combination of the exploration results and an external reference (such as theory in a domain, statements from an expert, competitor facts, etc.) so that the recommendations are targeted and reasonable.
+   - Total visualizations: 6 visualizations + 1 Markdown visualization for conclusions = 7 visualizations.
+
 ---
+
 ## Conceptual Problems
 
-1. Jelaskan apa yang dimaksud dengan NoSQL menggunakan pemahaman yang kalian ketahui !
+1. Explain what is meant by NoSQL using your understanding!
 
-2. Jelaskan kapan harus menggunakan NoSQL dan Relational Database Management System !
+2. Explain when to use NoSQL and Relational Database Management System!
 
-3. Sebutkan contoh 2 tools/platform NoSQL selain ElasticSearch beserta keunggulan tools/platform tersebut !
+3. Mention 2 examples of NoSQL tools/platforms other than Elasticsearch, along with the advantages of these tools/platforms!
 
-4. Jelaskan apa yang Anda ketahui dari Airflow menggunakan pemahaman dan bahasa Anda sendiri !
+4. Explain what you understand from Airflow in your own words!
 
-5. Jelaskan apa yang Anda ketahui dari Great Expectations menggunakan pemahaman dan bahasa Anda sendiri !
+5. Explain what you understand from Great Expectations in your own words!
 
-6. Jelaskan apa yang Anda ketahui dari Batch Processing menggunakan pemahaman dan bahasa Anda sendiri (Definisi, Contoh Kasus Penggunaan, Tools, dll) !
+6. Explain what you understand from Batch Processing in your own words (Definition, Use Case Examples, Tools, etc.)!
